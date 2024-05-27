@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - Garment Showcase</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+  /* Media Query for Small Devices (max-width: 480px) */
+@media (max-width: 480px) {
+
+/* Adjust Body Padding */
+body {
+  padding-top: 0px; /* Adjust as necessary */
+}
+
+/* Navigation */
+nav {
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: -250px; /* Hidden by default */
+  height: 100%;
+  background-color: #6c5b7b;
+  overflow-y: auto;
+  transition: left 0.3s;
+  z-index: 1000;
+  padding-top: 60px;
+}
+
+nav a {
+  font-size: 0.9rem; /* Adjust font size */
+  padding: 0.4rem;
+  display: block; /* Stack navigation links vertically */
+  margin: 5px 0;
+}
+
+nav .gar {
+  font-size: 1.5rem;
+}
+
+/* Nav Toggle Button */
+.nav-toggle {
+        position: absolute;
+        bottom: 840px;
+        left: 360px;
+        font-size: 1.5rem;
+        background-color: transparent;
+        color: rgb(0, 0, 0);
+        border: none;
+        padding: 10px;
+        z-index: 1001;
+        display: block;
+    }
+/* Product Grid */
+.product-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Add gap between product items */
+  padding: 20px 5%;
+  margin-top: 60px; /* Adjust top margin to avoid overlap with fixed nav */
+}
+
+.product-item {
+  width: 100%; /* Full width for small screens */
+}
+
+.product-item img {
+  width: 100%; /* Full width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Adjust Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+}
+
+.footer-box {
+  margin-bottom: 20px;
+}
+
+/* Copyright Section */
+.copyright {
+  flex-direction: column; /* Stack elements vertically */
+  text-align: center;
+  padding: 10px;
+}
+
+.end-text p {
+  font-size: 14px;
+}
+
+/* Adjust Buttons */
+.model-controls {
+  display: flex;
+  flex-direction: row; /* Display buttons horizontally */
+  gap: 5px; /* Add gap between buttons */
+  width: 100%;
+  justify-content: center; /* Center the buttons */
+  align-items: center;
+}
+
+.btonV {
+  width: auto; /* Adjust width to auto */
+  padding: 5px 10px; /* Smaller padding for buttons */
+  font-size: 12px; /* Adjust font size for buttons */
+}
+}
+
+</style>
+<body>
+  <button class="nav-toggle" onclick="toggleNav()">☰</button>
+
+  <nav>
+    <a href="#" class="gar">GARMENTS.CO</a>
+    <a href="home.html">Home</a>
+    <a href="tryOn.html">Virtual Try-On</a>
+    <div class="dropdown">
+      <a href="#">Products</a>
+      <div class="dropdown-content">
+        <a href="product.html" onclick="selectCategory('shirts')">T-Shirts</a>
+        <a href="product.html" onclick="selectCategory('longSl')">Long Sleeves</a>
+        <a href="product.html" onclick="selectCategory('jeans')">Jeans</a>
+        <a href="product.html" onclick="selectCategory('pants')">Sweatpants</a>
+      </div>
+    </div>
+    <a href="checkout.html">Checkout</a>
+    <a href="login.html">Login</a>
+    <a href="contact.html">Contact Us</a>
+
+  </nav>
+
+  <div class="product-grid">
+    <!-- Product items go here -->
+    <div class="product-item shirts">
+      <img src="images/shirt1.webp" alt="shirt1">
+      <h3>Chaotic T-Shirt</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$50.00</h6>
+        </div>
+      </div>
+    </div>
+    <!-- Add more products similarly -->
+    <div class="product-item shirts">
+      <img src="images/shirt2.webp" alt="shirt2">
+      <h3>Gray T-Shirt</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$25.00</h6>
+        </div>
+      </div>
+    </div>
+    <div class="product-item shirts">
+      <img src="images/shirt3.webp" alt="shirt3">
+      <h3>Detailed T-Shirt</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$60.00</h6>
+        </div>
+      </div>
+    </div>
+    <div class="product-item shirts">
+      <img src="images/shirt4.webp" alt="shirt4">
+      <h3>Blue T-Shirt</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$25.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item shirts">
+      <img src="images/shirt 5.webp" alt="shirt5">
+      <h3>Concept T-shirt</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$30.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item shirts">
+      <img src="images/shirt 6.webp" alt="shirt6">
+      <h3>Modern T-shirt</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$50.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item pants">
+      <img src="images/pant1.webp" alt="pant1">
+      <h3>Black pant</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$40.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item pants">
+      <img src="images/pant2.webp" alt="pant2">
+      <h3>Gray pant</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$30.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item pants">
+      <img src="images/pant3.webp" alt="pant3">
+      <h3>Red pant</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$30.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item pants">
+      <img src="images/pant4.webp" alt="pant4">
+      <h3>Sky-blue pant</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$50.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item pants">
+      <img src="images/pant5.webp" alt="pant5">
+      <h3>Navy pant</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$30.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item longSl">
+      <img src="images/long1.webp" alt="long1">
+      <h3>White shirt</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$50.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item longSl">
+      <img src="images/long2.webp" alt="long2">
+      <h3>Navy shirt</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$50.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item longSl">
+      <img src="images/long3.webp" alt="long3">
+      <h3>Light-gray shirt</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$50.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item longSl">
+      <img src="images/long4.webp" alt="long4">
+      <h3>Black shirt</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$50.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item longSl">
+      <img src="images/long5.webp" alt="long5">
+      <h3>Olive-green shirt</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$50.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item longSl">
+      <img src="images/long6.webp " alt="long6">
+      <h3>Magenta shirt</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$55.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item jeans">
+      <img src="images/jeans1.webp" alt="jeans1">
+      <h3>Blue jeans</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$50.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item jeans">
+      <img src="images/jeans2.webp" alt="jeans2">
+      <h3>Dark-blue jeans</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$50.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item jeans">
+      <img src="images/jeans3.webp" alt="jeans3">
+      <h3>Light-blue jeans</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$50.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item jeans">
+      <img src="images/jeans4.webp" alt="jeans4">
+      <h3>Cargo jeans</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$50.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item jeans">
+      <img src="images/jeans5.webp" alt="jeans5">
+      <h3>Black jeans</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$50.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item jeans">
+      <img src="images/jeans6.webp" alt="jeans6">
+      <h3>White jeans</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$50.00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-item jeans">
+      <img src="images/jeans7.webp" alt="jeans7">
+      <h3>loose-fit jeans</h3>
+      <div class="stars">
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+        <a href="#"><i class="ri-star-s-fill"></i></a>
+      </div>
+      <div class="row-in">
+        <div class="row-left"><a href="#" class="add-to-cart">add to cart<i class="ri-shopping-cart-2-fill"></i></a>
+        </div>
+        <div class="row-right">
+          <h6>$40.00</h6>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <section>
+    <div class="n-btn">
+      <a href="#" class="btn2">View all</a>
+    </div>
+  </section>
+
+
+  <section class="footer">
+    <div class="footer-box">
+        <h3>Company</h3>
+        <a href="about.html">About</a>
+        <a href="features.html">Features</a>
+        <a href="works.html">Works</a>
+        <a href="careers.html">Career</a>
+    </div>
+    <div class="footer-box">
+        <h3>FAQ</h3>
+        <a href="faq_account.html">Account</a>
+        <a href="faq_features.html">Features</a>
+        <a href="faq_works.html">Works</a>
+        <a href="faq_career.html">Career</a>
+    </div>
+    <div class="footer-box">
+        <h3>Resources</h3>
+        <a href="https://www.youtube.com/yourchannel" target="_blank">Youtube</a>
+        <a href="resources_features.html">Features</a>
+        <a href="resources_works.html">Works</a>
+    </div>
+    <div class="footer-box">
+        <h3>Social</h3>
+        <div class="social">
+            <a href="https://www.facebook.com" target="_blank"><i class="ri-facebook-fill"></i></a>
+            <a href="https://www.instagram.com" target="_blank"><i class="ri-instagram-fill"></i></a>
+            <a href="https://www.twitter.com" target="_blank"><i class="ri-twitter-x-fill"></i></a>
+        </div>
+    </div>
+</section>
+
+<div class="copyright">
+    <div class="end-text">
+        <p>Copyright 2024 By <span class="aish"> AYYOUCHA <i class="ri-heart-fill"></i></span> :)</p>
+    </div>
+</div>
+  <script>
+    function selectCategory(category) {
+      const products = document.querySelectorAll('.product-item');
+      products.forEach(product => {
+        if (category === 'all' || product.classList.contains(category)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    function addToCart(productItem) {
+      const name = productItem.querySelector('h3').innerText;
+      const price = parseFloat(productItem.querySelector('.row-right h6').innerText.replace('$', ''));
+      const image = productItem.querySelector('img').src;
+
+      let cart = localStorage.getItem('cart') ? localStorage.getItem('cart').split(';') : [];
+      let updatedCart = [];
+      let found = false;
+
+      cart.forEach(item => {
+        let [itemName, itemPrice, itemImage, itemQuantity] = item.split('|');
+        if (itemName.toLowerCase() === name.toLowerCase()) {
+          itemQuantity = parseInt(itemQuantity) + 1;
+          found = true;
+        }
+        updatedCart.push([itemName, itemPrice, itemImage, itemQuantity].join('|'));
+      });
+
+      if (!found) {
+        updatedCart.push([name, price, image, 1].join('|'));
+      }
+
+      localStorage.setItem('cart', updatedCart.join(';'));
+      alert('Product added to cart!');
+    }
+
+    function displayCartItems() {
+      const cartItems = localStorage.getItem('cart') ? localStorage.getItem('cart').split(';') : [];
+      const cartItemsContainer = document.getElementById('cart-items');
+      cartItemsContainer.innerHTML = ''; // Clear any existing content
+      let subtotal = 0;
+
+      cartItems.forEach(item => {
+        console.log('Processing item:', item); // Debugging log
+        let [name, price, image, quantity] = item.split('|');
+        price = parseFloat(price);
+        quantity = parseInt(quantity);
+
+        if (isNaN(price) || isNaN(quantity)) {
+          console.log('Invalid price or quantity for item:', item); // Debugging log
+          return;
+        }
+
+        console.log('Image URL:', image); // Debugging log to check the image URL
+
+        const itemElement = document.createElement('div');
+        itemElement.classList.add('form-group');
+        itemElement.innerHTML = `
+          <div class="col-sm-3 col-xs-3">
+            <img class="img-responsive" src="images/${image}" alt="${name}" onerror="this.onerror=null; this.src='default-image-path';"/>
+          </div>
+          <div class="col-sm-6 col-xs-6">
+            <div class="col-xs-12">${name}</div>
+            <div class="col-xs-12"><small>Quantity: <span>${quantity}</span></small></div>
+          </div>
+          <div class="col-sm-3 col-xs-3 text-right">
+            <h6><span>$</span>${(price * quantity).toFixed(2)}</h6>
+          </div>
+        `;
+        
+        cartItemsContainer.appendChild(itemElement);
+        subtotal += price * quantity;
+      });
+
+      document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+      document.getElementById('total').textContent = subtotal.toFixed(2);
+    }
+
+    // Add click event to category links for filtering
+    const categoryLinks = document.querySelectorAll('.dropdown-content a');
+    categoryLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const category = this.getAttribute('onclick').match(/'(.*)'/)[1];
+        localStorage.setItem('selectedCategory', category);  // Store selected category
+        selectCategory(category);
+      });
+    });
+
+    // Check if a category is selected in localStorage and filter products accordingly
+    document.addEventListener('DOMContentLoaded', () => {
+      const selectedCategory = localStorage.getItem('selectedCategory') || 'all';
+      selectCategory(selectedCategory);
+    });
+
+    function toggleNav() {
+  const nav = document.querySelector('nav');
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth < 480) {
+    if (nav.style.left === '0px') {
+      nav.style.left = '-250px';
+    } else {
+      nav.style.left = '0px';
+    }
+  } else {
+    // Ensure nav is reset for larger screens
+    nav.style.left = '0px';
+  }
+}
+
+// Ensure the nav is correctly displayed when the window is resized
+window.addEventListener('resize', () => {
+  const nav = document.querySelector('nav');
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth >= 480) {
+    nav.style.left = '0px';
+  }
+});
+  </script>
+</body>
+</html>

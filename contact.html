@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Garment Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<style>
+
+@media (max-width: 480px) {
+    .nav-toggle {
+        bottom: 845px;
+        left: 375px;
+        font-size: 1.5rem;
+        background-color: transparent;
+        color: hsl(312, 58%, 85%);
+        border: none;
+        z-index: 1001;
+        
+    }
+}
+
+
+</style>
+
+<body>
+    <nav>
+        <a href="#" class="gar">GARMENTS.CO</a>
+        <a href="home.html">Home</a>
+        <a href="tryOn.html">Virtual Try-On</a>
+        <div class="dropdown">
+            <a href="product.html">Products</a>
+            <div class="dropdown-content">
+                <a href="product.html" onclick="selectCategory('shirts')">T-Shirts</a>
+                <a href="product.html" onclick="selectCategory('longSl')">Long Sleeves</a>
+                <a href="product.html" onclick="selectCategory('jeans')">Jeans</a>
+                <a href="product.html" onclick="selectCategory('pants')">Sweatpants</a>
+            </div>
+        </div>
+        <a href="checkOut.html">Checkout</a>
+        <a href="login.html">Login</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+
+    <h1>Contact Us</h1>
+
+    <div class="container">
+        <div id="error_message"></div>
+       <form id="contactForm" action="contact.php" method="POST" onsubmit="return validate();">
+            <input id="name" name="name" type="text" class="feedback-input" placeholder="Name" required />
+            <input id="subject" name="subject" type="text" class="feedback-input" placeholder="Subject" required />
+            <input id="phone" name="phone" type="text" class="feedback-input" placeholder="Phone" required />
+            <input id="email" name="email" type="email" class="feedback-input" placeholder="Email" required />
+            <textarea id="message" name="message" class="feedback-input" placeholder="Comment" required></textarea>
+            <input type="submit" value="SUBMIT" />
+        </form>
+    </div>
+
+    <section class="footer">
+        <div class="footer-box">
+            <h3>Company</h3>
+            <a href="about.html">About</a>
+            <a href="features.html">Features</a>
+            <a href="works.html">Works</a>
+            <a href="careers.html">Career</a>
+        </div>
+        <div class="footer-box">
+            <h3>FAQ</h3>
+            <a href="faq_account.html">Account</a>
+            <a href="faq_features.html">Features</a>
+            <a href="faq_works.html">Works</a>
+            <a href="faq_career.html">Career</a>
+        </div>
+        <div class="footer-box">
+            <h3>Resources</h3>
+            <a href="https://www.youtube.com" target="_blank">Youtube</a>
+            <a href="resources_features.html">Features</a>
+            <a href="resources_works.html">Works</a>
+        </div>
+        <div class="footer-box">
+            <h3>Social</h3>
+            <div class="social">
+                <a href="https://www.facebook.com" target="_blank"><i class="ri-facebook-fill"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="ri-instagram-fill"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="ri-twitter-x-fill"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <div class="copyright">
+        <div class="end-text">
+            <p>Copyright 2024 By <span class="aish"> AYYOUCHA <i class="ri-heart-fill"></i></span> :)</p>
+        </div>
+    </div>
+
+    <script>
+        function selectCategory(category) {
+            localStorage.setItem('selectedCategory', category);
+            window.location.href = 'product.html';
+        }
+
+        function toggleNav() {
+  const nav = document.querySelector('nav');
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth < 480) {
+    if (nav.style.left === '0px') {
+      nav.style.left = '-250px';
+    } else {
+      nav.style.left = '0px';
+    }
+  } else {
+    // Ensure nav is reset for larger screens
+    nav.style.left = '0px';
+  }
+}
+
+// Ensure the nav is correctly displayed when the window is resized
+window.addEventListener('resize', () => {
+  const nav = document.querySelector('nav');
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth >= 480) {
+    nav.style.left = '0px';
+  }
+});
+
+        function validate() {
+            let name = document.getElementById("name").value;
+            let subject = document.getElementById("subject").value;
+            let phone = document.getElementById("phone").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+            let error_message = document.getElementById("error_message");
+
+            error_message.style.padding = "10px";
+
+            let errors = [];
+
+            if (name.length < 5) {
+                errors.push("Please Enter a valid Name");
+            }
+            if (subject.length < 10) {
+                errors.push("Please Enter a Correct Subject");
+            }
+            if (isNaN(phone) || phone.length != 10) {
+                errors.push("Please Enter a valid Phone Number");
+            }
+            if (email.indexOf("@") == -1 || email.length < 6) {
+                errors.push("Please Enter a valid Email");
+            }
+            if (message.length <= 40) {
+                errors.push("Please Enter More Than 40 Characters");
+            }
+
+            if (errors.length > 0) {
+                error_message.innerHTML = errors.join("<br>");
+                return false;
+            } else {
+                alert("Form Submitted Successfully!");
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>

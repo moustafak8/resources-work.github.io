@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features Resources - Garment Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 150px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            top: 100px;
+            text-align: center;
+            position: absolute;
+        }
+
+        .content {
+            padding: 20px 0;
+        }
+
+        .content h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-box .social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 40px;
+            font-size: 17px;
+            background-color: burlywood;
+            color: gray !important;
+            border-radius: 10px;
+            margin-right: 14px;
+            transition: all 0.6s;
+        }
+
+        .social a:hover {
+            background-color: rgb(0, 0, 0);
+            color: #fff !important;
+        }
+
+ /* Media Query for Devices Between 480px and 769px */
+ @media (min-width: 480px) and (max-width: 769px) {
+
+/* Adjust Container */
+.container {
+  margin: 20px auto;
+  padding: 10px;
+  width: 90%;
+  max-width: 600px; /* Adjust max-width for medium screens */
+}
+
+/* Adjust Header */
+h1 {
+  font-size: 2em; /* Adjust header font size */
+  text-align: center;
+  position: relative;
+  top: 20px;
+}
+
+/* Adjust Content */
+.content {
+  padding: 10px 0;
+}
+
+.content h2 {
+  font-size: 1.5em; /* Adjust font size */
+  margin-bottom: 15px;
+}
+
+.content p {
+  font-size: 1em; /* Adjust font size */
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+}
+
+/* Media Query for Small Devices (max-width: 480px) */
+@media (max-width: 480px) {
+
+/* Adjust Container */
+.container {
+  margin: 10px auto;
+  padding: 10px;
+  width: 90%;
+  max-width: 300px; /* Set a max width for the form */
+}
+
+/* Adjust Header */
+h1 {
+  font-size: 1.5em; /* Adjust header font size */
+  text-align: center;
+  position: relative;
+  top: 20px;
+}
+
+/* Adjust Content */
+.content {
+  padding: 10px 0;
+}
+
+.content h2 {
+  font-size: 1.2em; /* Adjust font size */
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 0.9em; /* Adjust font size */
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.nav-toggle {
+        bottom: 850px;
+        left: 370px;
+        font-size: 1.5rem;
+        background-color: transparent;
+        color: #844f82;
+        border: none;
+        z-index: 1001;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="gar">GARMENTS.CO</a>
+        <a href="home.html">Home</a>
+        <a href="tryOn.html">Virtual Try-On</a>
+        <div class="dropdown">
+          <a href="#">Products</a>
+          <div class="dropdown-content">
+            <a href="product.html" onclick="selectCategory('shirts')">T-Shirts</a>
+            <a href="product.html" onclick="selectCategory('longSl')">Long Sleeves</a>
+            <a href="product.html" onclick="selectCategory('jeans')">Jeans</a>
+            <a href="product.html" onclick="selectCategory('pants')">Sweatpants</a>
+          </div>
+        </div>
+        <a href="checkOut.html">Checkout</a>
+        <a href="login.html">Login</a>
+        <a href="contact.html">Contact Us</a>
+
+    </nav>
+    <button class="nav-toggle" onclick="toggleNav()">☰</button>
+
+    <h1>Features Resources</h1>
+
+    <div class="container">
+        <div class="content">
+            <h2>Our Innovative Features</h2>
+            <p>Discover the innovative features that make Garment Showcase unique. Our platform integrates advanced AI technology to enhance your shopping experience.</p>
+            <h2>AI-Powered Try-On</h2>
+            <p>Our AI-powered Try-On feature allows you to see how clothes will look on you before making a purchase. This cutting-edge technology scans your body dimensions from uploaded images.</p>
+            <h2>Personalized Recommendations</h2>
+            <p>Get personalized clothing recommendations based on your style preferences and past purchases. Our recommendation engine ensures you always find items you love.</p>
+        </div>
+    </div>
+
+    <section class="footer">
+        <div class="footer-box">
+            <h3>Company</h3>
+            <a href="about.html">About</a>
+            <a href="features.html">Features</a>
+            <a href="works.html">Works</a>
+            <a href="careers.html">Career</a>
+        </div>
+        <div class="footer-box">
+            <h3>FAQ</h3>
+            <a href="faq_account.html">Account</a>
+            <a href="faq_features.html">Features</a>
+            <a href="faq_works.html">Works</a>
+            <a href="faq_career.html">Career</a>
+        </div>
+        <div class="footer-box">
+            <h3>Resources</h3>
+            <a href="https://www.youtube.com" target="_blank">Youtube</a>
+            <a href="resources_features.html">Features</a>
+            <a href="resources_works.html">Works</a>
+        </div>
+        <div class="footer-box">
+            <h3>Social</h3>
+            <div class="social">
+                <a href="https://www.facebook.com" target="_blank"><i class="ri-facebook-fill"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="ri-instagram-fill"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="ri-twitter-x-fill"></i></a>
+            </div>
+        </div>
+    </section>
+    
+    <div class="copyright">
+        <div class="end-text">
+            <p>Copyright 2024 By <span class="aish"> AYYOUCHA <i class="ri-heart-fill"></i></span> :)</p>
+        </div>
+    </div>
+    <script>
+
+function toggleNav() {
+  const nav = document.querySelector('nav');
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth < 480) {
+    if (nav.style.left === '0px') {
+      nav.style.left = '-250px';
+    } else {
+      nav.style.left = '0px';
+    }
+  } else {
+    // Ensure nav is reset for larger screens
+    nav.style.left = '0px';
+  }
+}
+
+// Ensure the nav is correctly displayed when the window is resized
+window.addEventListener('resize', () => {
+  const nav = document.querySelector('nav');
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth >= 480) {
+    nav.style.left = '0px';
+  }
+});
+
+
+    </script>
+</body>
+</html>

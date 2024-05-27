@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <title>Checkout - Garment Showcase</title>
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+
+</head>
+<style>
+  
+  @media (min-width: 1025px) {
+    .h-custom {
+      height: 100vh !important;
+    }
+  }
+
+  .footer h3 {
+    margin-bottom: 10px;
+}
+
+
+.footer .footer-box {
+    margin-bottom: 10px;
+}
+
+.copyright {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+
+.test{
+  padding-bottom: 800px;
+}
+  /* Navigation Bar */
+nav {
+    background-color: #6c5b7b;
+    padding: 0.5rem ;
+    text-align: center;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays above other content */
+    margin-bottom: 50px;
+  
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    font-size: 1.2rem; /* Adjust font size as needed */
+    display: inline-block;
+    margin: 10px;
+    transition: all 0.6s;
+}
+
+nav a:hover {
+    transform: translateY(-4px);
+    color: black;
+}
+
+nav .gar {
+    font-size: 2rem; /* Adjust font size as needed */
+    font-weight: bold;
+    color: #000;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: all 0.5s;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #a39d9d;
+    transform: translateY(3px);
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  @media (max-width: 480px) {
+    
+    /* Body Padding Adjustment */
+     body {
+      padding-top: 0; /* Adjust as necessary */
+    }
+
+    .nav-toggle {
+        left: 355px;
+        bottom: 856px;
+        position: absolute;
+        background: transparent;
+        border: none;
+        font-size: large;
+    }
+
+    /* Navigation */
+  nav {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -270px; /* Hidden by default */
+    height: 100%;
+    background-color: #6c5b7b;
+    overflow-y: auto;
+    transition: left 0.3s;
+    z-index: 1000;
+    padding-top: 60px;
+  }
+
+  nav a {
+    font-size: 0.9rem; /* Adjust font size */
+    padding: 0.4rem;
+    display: block; /* Stack navigation links vertically */
+    margin: 5px 0;
+  }
+
+  nav .gar {
+    font-size: 1.5rem;
+  }
+}
+  @media (min-width: 480px) and (max-width: 769px) {
+
+/* Body Padding Adjustment */
+body {
+  padding-top: 60px; /* Adjust as necessary */
+}
+
+/* Navigation */
+nav {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 60px;
+        background-color: #6c5b7b;
+        overflow-y: hidden;
+        transition: left 0.3s;
+        z-index: 1000;
+        padding: 0.5rem 0;
+        text-align: center;
+        padding-bottom: 2px;
+    }
+
+  nav a {
+    font-size: 0.9rem; /* Adjust font size */
+    padding: 0.3rem;
+    display: inline-block; /* Display navigation links inline */
+    margin: 0 8px;
+  }
+
+  nav .gar {
+    font-size: 1.2rem;
+    display: inline-block; /* Display logo inline */
+    margin-right: 15px;  /* Add some space to the right of the logo */
+}
+ /* Nav Toggle Button */
+ .nav-toggle {
+      display: none; /* Hide the toggle button */
+    }
+}
+
+</style>
+
+<button class="nav-toggle" onclick="toggleNav()">☰</button>
+
+<body class="">
+  <nav>
+    <a href="#" class="gar">GARMENTS.CO</a>
+    <a href="home.html">Home</a>
+    <a href="tryOn.html">Virtual Try-On</a>
+    <div class="dropdown">
+      <a href="#">Products</a>
+      <div class="dropdown-content">
+        <a href="product.html" onclick="selectCategory('shirts')">T-Shirts</a>
+        <a href="product.html" onclick="selectCategory('longSl')">Long Sleeves</a>
+        <a href="product.html" onclick="selectCategory('jeans')">Jeans</a>
+        <a href="product.html" onclick="selectCategory('pants')">Sweatpants</a>
+      </div>
+    </div>
+    <a href="checkOut.html">Checkout</a>
+    <a href="login.html">Login</a>
+    <a href="contact.html">Contact Us</a>
+
+  </nav>
+
+  <section class="h-100 h-custom test">
+    <div class="container h-100 py-5">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col">
+  
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="h5">Shopping Bag</th>
+                  <th scope="col">Format</th>
+                  <th scope="col">Quantity</th>
+                  <th scope="col">Price</th>
+                </tr>
+              </thead>
+              <tbody id="cart-items">
+                <!-- Dynamic cart items will be appended here -->
+              </tbody>
+            </table>
+          </div>
+  
+          <div class="card shadow-2-strong mb-5 mb-lg-0" style="border-radius: 16px;">
+            <div class="card-body p-4">
+  
+              <div class="row">
+                <div class="col-md-6 col-lg-4 col-xl-3 mb-4 mb-md-0">
+                  <form>
+                    <div class="d-flex flex-row pb-3">
+                      <div class="d-flex align-items-center pe-2">
+                        <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1v"
+                          value="" aria-label="..." checked />
+                      </div>
+                      <div class="rounded border w-100 p-3">
+                        <p class="d-flex align-items-center mb-0">
+                          <i class="fab fa-cc-mastercard fa-2x text-dark pe-2"></i>Credit
+                          Card
+                        </p>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-row pb-3">
+                      <div class="d-flex align-items-center pe-2">
+                        <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel2v"
+                          value="" aria-label="..." />
+                      </div>
+                      <div class="rounded border w-100 p-3">
+                        <p class="d-flex align-items-center mb-0">
+                          <i class="fab fa-cc-visa fa-2x fa-lg text-dark pe-2"></i>Debit Card
+                        </p>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                      <div class="d-flex align-items-center pe-2">
+                        <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel3v"
+                          value="" aria-label="..." />
+                      </div>
+                      <div class="rounded border w-100 p-3">
+                        <p class="d-flex align-items-center mb-0">
+                          <i class="fab fa-cc-paypal fa-2x fa-lg text-dark pe-2"></i>PayPal
+                        </p>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-md-6 col-lg-4 col-xl-6">
+                  <div class="row">
+                    <div class="col-12 col-xl-6">
+                      <div data-mdb-input-init class="form-outline mb-4 mb-xl-5">
+                        <input type="text" id="typeName" class="form-control form-control-lg" size="17"
+                          placeholder="John Smith" />
+                        <label class="form-label" for="typeName">Name on card</label>
+                      </div>
+  
+                      <div data-mdb-input-init class="form-outline mb-4 mb-xl-5">
+                        <input type="text" id="typeExp" class="form-control form-control-lg" placeholder="MM/YY"
+                          size="7" minlength="7" maxlength="7" />
+                        <label class="form-label" for="typeExp">Expiration</label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-xl-6">
+                      <div data-mdb-input-init class="form-outline mb-4 mb-xl-5">
+                        <input type="text" id="typeText" class="form-control form-control-lg" size="17"
+                          placeholder="1111 2222 3333 4444" minlength="19" maxlength="19" />
+                        <label class="form-label" for="typeText">Card Number</label>
+                      </div>
+  
+                      <div data-mdb-input-init class="form-outline mb-4 mb-xl-5">
+                        <input type="password" id="typeCvv" class="form-control form-control-lg"
+                          placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
+                        <label class="form-label" for="typeCvv">Cvv</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-xl-3">
+                  <div class="d-flex justify-content-between" style="font-weight: 500;">
+                    <p class="mb-2">Subtotal</p>
+                    <p class="mb-2" id="subtotal">$0.00</p>
+                  </div>
+  
+                  <div class="d-flex justify-content-between" style="font-weight: 500;">
+                    <p class="mb-0">Shipping</p>
+                    <p class="mb-0">$2.99</p>
+                  </div>
+  
+                  <hr class="my-4">
+  
+                  <div class="d-flex justify-content-between mb-4" style="font-weight: 500;">
+                    <p class="mb-2">Total (tax included)</p>
+                    <p class="mb-2" id="total">$0.00</p>
+                  </div>
+  
+                  <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block btn-lg">
+                    <div class="d-flex justify-content-between">
+                      <span>Checkout</span>
+                      <span id="checkout-total">$0.00</span>
+                    </div>
+                  </button>
+  
+                </div>
+              </div>
+  
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      displayCartItems();
+    });
+
+    function displayCartItems() {
+      const cartItems = localStorage.getItem('cart') ? localStorage.getItem('cart').split(';') : [];
+      const cartItemsContainer = document.getElementById('cart-items');
+      let subtotal = 0;
+
+      cartItems.forEach(item => {
+        let [name, price, image, quantity] = item.split('|');
+        price = parseFloat(price);
+        quantity = parseInt(quantity);
+
+        if (isNaN(price) || isNaN(quantity)) {
+          return;
+        }
+
+        const itemElement = document.createElement('tr');
+        itemElement.innerHTML = `
+          <th scope="row">
+            <div class="d-flex align-items-center">
+              <img src="${image}" class="img-fluid rounded-3" style="width: 120px;" alt="${name}">
+              <div class="flex-column ms-4">
+                <p class="mb-2">${name}</p>
+                <p class="mb-0">Author Name</p>
+              </div>
+            </div>
+          </th>
+          <td class="align-middle">
+            <p class="mb-0" style="font-weight: 500;">Format</p>
+          </td>
+          <td class="align-middle">
+            <div class="d-flex flex-row">
+              <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                <i class="fas fa-minus"></i>
+              </button>
+  
+              <input id="form1" min="0" name="quantity" value="${quantity}" type="number"
+                class="form-control form-control-sm" style="width: 50px;" />
+  
+              <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+          </td>
+          <td class="align-middle">
+            <p class="mb-0" style="font-weight: 500;">$${(price * quantity).toFixed(2)}</p>
+          </td>
+        `;
+        cartItemsContainer.appendChild(itemElement);
+        subtotal += price * quantity;
+      });
+
+      document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+      document.getElementById('total').textContent = (subtotal + 2.99).toFixed(2);
+      document.getElementById('checkout-total').textContent = (subtotal + 2.99).toFixed(2);
+    }
+
+    function toggleNav() {
+  const nav = document.querySelector('nav');
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth < 480) {
+    if (nav.style.left === '0px') {
+      nav.style.left = '-270px';
+    } else {
+      nav.style.left = '0px';
+    }
+  } else {
+    // Ensure nav is reset for larger screens
+    nav.style.left = '0px';
+  }
+}
+
+// Ensure the nav is correctly displayed when the window is resized
+window.addEventListener('resize', () => {
+  const nav = document.querySelector('nav');
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth >= 480) {
+    nav.style.left = '0px';
+  }
+});
+
+
+  </script>
+</body>
+</html>
